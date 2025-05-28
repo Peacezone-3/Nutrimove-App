@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.nutrimove.app-mergeDebugResources-59:/values-port/values-port.xml",
+            "outputFile": "com.nutrimove.app-mergeDebugResources-60:/values-port/values-port.xml",
             "map": [
                 {
                     "source": "/Users/alexandrefonseca/.gradle/caches/8.12/transforms/2dcf78fc7dc57a85ca38c043f6461bd6/transformed/appcompat-1.6.1/res/values-port/values-port.xml",

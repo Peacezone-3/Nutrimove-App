@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.nutrimove.app-mergeDebugResources-59:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "com.nutrimove.app-mergeDebugResources-60:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
                     "source": "/Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",

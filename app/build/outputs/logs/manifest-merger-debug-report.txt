@@ -4,12 +4,14 @@ ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/m
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-20:12
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-20:12
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-20:12
+MERGED from [com.airbnb.android:lottie-compose:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/c9485148e3001a22c418355c66824bf6/transformed/jetified-lottie-compose-6.1.0/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-common:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/b2b810c31b16221124fea862d94bf2b5/transformed/navigation-common-2.7.3/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/674472014d9eda254d6412152c2f1715/transformed/navigation-runtime-2.7.3/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/fde7a06ddddafec7a639944e9b34ed10/transformed/navigation-common-ktx-2.7.3/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/99ba58469398769537456e0e880281c1/transformed/navigation-runtime-ktx-2.7.3/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-compose:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/dc2e5e527d5bd3e6b85bad113c6cf314/transformed/jetified-navigation-compose-2.7.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.airbnb.android:lottie:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/2fe0d9ce33abe56c967ef0c8d59a0516/transformed/jetified-lottie-6.1.0/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/0138e46acf500970d4bc866756e70c97/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/22a57d0f3e7c280eb8ba11f4148460f0/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/2dcf78fc7dc57a85ca38c043f6461bd6/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -94,6 +96,8 @@ ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/m
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:6:5-18:19
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
+MERGED from [com.airbnb.android:lottie:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/2fe0d9ce33abe56c967ef0c8d59a0516/transformed/jetified-lottie-6.1.0/AndroidManifest.xml:7:5-20
+MERGED from [com.airbnb.android:lottie:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/2fe0d9ce33abe56c967ef0c8d59a0516/transformed/jetified-lottie-6.1.0/AndroidManifest.xml:7:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/0138e46acf500970d4bc866756e70c97/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/0138e46acf500970d4bc866756e70c97/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
 MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/6f7e5e5a4d07dbf617aefab62b9b8a39/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
@@ -138,6 +142,8 @@ uses-sdk
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml
+MERGED from [com.airbnb.android:lottie-compose:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/c9485148e3001a22c418355c66824bf6/transformed/jetified-lottie-compose-6.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.airbnb.android:lottie-compose:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/c9485148e3001a22c418355c66824bf6/transformed/jetified-lottie-compose-6.1.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-common:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/b2b810c31b16221124fea862d94bf2b5/transformed/navigation-common-2.7.3/AndroidManifest.xml:20:5-44
@@ -150,6 +156,8 @@ MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.3] /Users/alexandref
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/99ba58469398769537456e0e880281c1/transformed/navigation-runtime-ktx-2.7.3/AndroidManifest.xml:5:5-44
 MERGED from [androidx.navigation:navigation-compose:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/dc2e5e527d5bd3e6b85bad113c6cf314/transformed/jetified-navigation-compose-2.7.3/AndroidManifest.xml:5:5-44
 MERGED from [androidx.navigation:navigation-compose:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/dc2e5e527d5bd3e6b85bad113c6cf314/transformed/jetified-navigation-compose-2.7.3/AndroidManifest.xml:5:5-44
+MERGED from [com.airbnb.android:lottie:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/2fe0d9ce33abe56c967ef0c8d59a0516/transformed/jetified-lottie-6.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.airbnb.android:lottie:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/2fe0d9ce33abe56c967ef0c8d59a0516/transformed/jetified-lottie-6.1.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/0138e46acf500970d4bc866756e70c97/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/0138e46acf500970d4bc866756e70c97/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/22a57d0f3e7c280eb8ba11f4148460f0/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44

@@ -1,4 +1,11 @@
 R_DEF: Internal format may change without notice
 local
 color white
+drawable ic_avatar
+drawable ic_dicas
+drawable ic_goal
+drawable ic_stats
+drawable imagens
+drawable teste1
+raw cycling
 style Theme.NutriMove

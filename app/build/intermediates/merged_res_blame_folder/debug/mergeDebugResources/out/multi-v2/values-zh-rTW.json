@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.nutrimove.app-mergeDebugResources-59:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "com.nutrimove.app-mergeDebugResources-60:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "/Users/alexandrefonseca/.gradle/caches/8.12/transforms/0b95614b87d8c11769b0ee2f8dd5e2b7/transformed/core-1.13.0/res/values-zh-rTW/values-zh-rTW.xml",

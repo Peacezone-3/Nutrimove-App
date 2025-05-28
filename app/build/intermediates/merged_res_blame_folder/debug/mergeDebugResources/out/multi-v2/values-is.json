@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.nutrimove.app-mergeDebugResources-59:/values-is/values-is.xml",
+            "outputFile": "com.nutrimove.app-mergeDebugResources-60:/values-is/values-is.xml",
             "map": [
                 {
                     "source": "/Users/alexandrefonseca/.gradle/caches/8.12/transforms/845ebece3788bc44dab6ef19b8221349/transformed/jetified-foundation-release/res/values-is/values-is.xml",

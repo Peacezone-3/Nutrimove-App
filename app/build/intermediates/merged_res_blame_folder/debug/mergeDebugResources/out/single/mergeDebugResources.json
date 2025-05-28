@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.nutrimove.app-debug-62:/drawable_ic_stats.png.flat",
+        "source": "com.nutrimove.app-main-64:/drawable/ic_stats.png"
+    },
+    {
+        "merged": "com.nutrimove.app-debug-62:/drawable_ic_goal.png.flat",
+        "source": "com.nutrimove.app-main-64:/drawable/ic_goal.png"
+    },
+    {
+        "merged": "com.nutrimove.app-debug-62:/drawable_ic_dicas.png.flat",
+        "source": "com.nutrimove.app-main-64:/drawable/ic_dicas.png"
+    },
+    {
+        "merged": "com.nutrimove.app-debug-62:/drawable_ic_avatar.png.flat",
+        "source": "com.nutrimove.app-main-64:/drawable/ic_avatar.png"
+    },
+    {
+        "merged": "com.nutrimove.app-debug-62:/drawable_imagens.xml.flat",
+        "source": "com.nutrimove.app-main-64:/drawable/imagens.xml"
+    },
+    {
+        "merged": "com.nutrimove.app-debug-62:/drawable_teste1.png.flat",
+        "source": "com.nutrimove.app-main-64:/drawable/teste1.png"
+    },
+    {
+        "merged": "com.nutrimove.app-debug-62:/raw_cycling.json.flat",
+        "source": "com.nutrimove.app-main-64:/raw/cycling.json"
+    }
+]
