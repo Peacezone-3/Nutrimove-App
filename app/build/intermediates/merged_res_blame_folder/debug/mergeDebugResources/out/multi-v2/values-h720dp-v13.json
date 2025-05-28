@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.nutrimove.app-mergeDebugResources-59:/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/alexandrefonseca/.gradle/caches/8.12/transforms/2dcf78fc7dc57a85ca38c043f6461bd6/transformed/appcompat-1.6.1/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}
