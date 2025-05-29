@@ -1,11 +1,17 @@
 R_DEF: Internal format may change without notice
 local
 color white
-drawable ic_avatar
-drawable ic_dicas
-drawable ic_goal
-drawable ic_stats
-drawable imagens
-drawable teste1
+drawable bench_press
+drawable deadlift
+drawable leg_press
+drawable logo
+drawable logo_background
+drawable logobig
+drawable splash_screen
+drawable squat
+mipmap logo
+mipmap logo_foreground
+mipmap logo_round
 raw cycling
 style Theme.NutriMove
+style Theme.NutriMove.Splash

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-20:12
-INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-20:12
-INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-20:12
-INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-20:12
+ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-31:12
+INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-31:12
+INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-31:12
+INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:1:1-31:12
 MERGED from [com.airbnb.android:lottie-compose:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/c9485148e3001a22c418355c66824bf6/transformed/jetified-lottie-compose-6.1.0/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-common:2.7.3] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/b2b810c31b16221124fea862d94bf2b5/transformed/navigation-common-2.7.3/AndroidManifest.xml:17:1-22:12
@@ -92,8 +92,8 @@ ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/m
 	android:name
 		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:6:5-18:19
-INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:6:5-18:19
+ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:6:5-30:19
+INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:6:5-30:19
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/05fef3a29bce8054b39588a65325bedc/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [com.airbnb.android:lottie:6.1.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/2fe0d9ce33abe56c967ef0c8d59a0516/transformed/jetified-lottie-6.1.0/AndroidManifest.xml:7:5-20
@@ -118,26 +118,40 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/alexandrefonseca/.gr
 		ADDED from [androidx.core:core:1.13.0] /Users/alexandrefonseca/.gradle/caches/8.12/transforms/0b95614b87d8c11769b0ee2f8dd5e2b7/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
 	android:label
 		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:8:9-34
+	android:roundIcon
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:11:9-41
+	android:icon
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:10:9-36
 	android:allowBackup
 		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:7:9-35
 	android:theme
 		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:9:9-47
-activity#com.nutrimove.MainActivity
-ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:10:9-17:20
+activity#com.nutrimove.SplashActivity
+ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:14:9-22:20
 	android:exported
-		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:12:13-36
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:16:13-36
+	android:theme
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:17:13-58
 	android:name
-		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:11:13-41
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:15:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:13:13-16:29
+ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:18:13-21:29
 action#android.intent.action.MAIN
-ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:15:17-77
+ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:15:27-74
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:20:27-74
+activity#com.nutrimove.MainActivity
+ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:25:9-28:54
+	android:exported
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:27:13-36
+	android:theme
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:28:13-51
+	android:name
+		ADDED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml:26:13-41
 uses-sdk
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/alexandrefonseca/AndroidStudioProjects/NutriMove_app/app/src/main/AndroidManifest.xml

@@ -1,137 +1,250 @@
+// app/src/main/java/com/nutrimove/ui/screens/onboarding/OnBoardingScreen.kt
 package com.nutrimove.ui.screens.onboarding
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Cake
-import androidx.compose.material.icons.filled.Height
-import androidx.compose.material.icons.filled.MonitorWeight
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.airbnb.lottie.compose.*
 import com.nutrimove.R
 import com.nutrimove.data.UserPreferences
+import com.nutrimove.ui.theme.Dimens
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OnBoardingScreen(
     navController: NavController,
     userName: String
 ) {
-    var step by remember { mutableStateOf(0) }
+    var step by rememberSaveable { mutableStateOf(0) }
     val LAST_STEP = 5
 
-    val age = remember { mutableStateOf("") }
-    val height = remember { mutableStateOf("") }
-    val weight = remember { mutableStateOf("") }
-    val activity = remember { mutableStateOf("") }
-    val goal = remember { mutableStateOf("") }
-    val trainingDays = remember { mutableStateOf(3) }
+    // form state
+    var age        by rememberSaveable { mutableStateOf("") }
+    var height     by rememberSaveable { mutableStateOf("") }
+    var weight     by rememberSaveable { mutableStateOf("") }
+    var activity   by rememberSaveable { mutableStateOf("") }
+    var goal       by rememberSaveable { mutableStateOf("") }
+    var daysCount  by rememberSaveable { mutableStateOf(3) }
 
+    val focusManager = LocalFocusManager.current
+    val keyboardCtrl = LocalSoftwareKeyboardController.current
+
+    // Lottie
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.cycling))
-    val progress by animateLottieCompositionAsState(composition, iterations = LottieConstants.IterateForever)
+    val progress    by animateLottieCompositionAsState(composition, iterations = LottieConstants.IterateForever)
 
+    // prefs
     val context = LocalContext.current
-    val prefs = remember { UserPreferences(context) }
-    val scope = rememberCoroutineScope()
+    val prefs   = remember { UserPreferences(context) }
+    val scope   = rememberCoroutineScope()
 
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color    = MaterialTheme.colorScheme.background
+    ) {
         Column(
-            modifier = Modifier
+            modifier           = Modifier
                 .fillMaxSize()
-                .padding(24.dp)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+                .padding(Dimens.spacingLg),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Lottie Animation
             LottieAnimation(
                 composition = composition,
-                progress = { progress },
-                modifier = Modifier
-                    .height(200.dp)
+                progress    = { progress },
+                modifier    = Modifier
                     .fillMaxWidth()
+                    .height(200.dp)
             )
 
-            // Greeting
+            Spacer(Modifier.height(Dimens.spacingMd))
+
             Text(
-                text = "Olá, $userName!",
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold
+                text  = "Olá, $userName!",
+                style = MaterialTheme.typography.displayLarge
             )
 
-            // Step Card
+            Spacer(Modifier.height(Dimens.spacingMd))
+
             Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                elevation = CardDefaults.cardElevation(6.dp)
+                modifier  = Modifier.fillMaxWidth(),
+                shape     = MaterialTheme.shapes.medium,
+                elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
             ) {
-                Column(modifier = Modifier.padding(20.dp)) {
+                Column(modifier = Modifier.padding(Dimens.spacingMd)) {
                     Crossfade(targetState = step) { current ->
                         when (current) {
-                            0 -> InputStep("Idade", age, Icons.Default.Cake)
-                            1 -> InputStep("Altura (cm)", height, Icons.Default.Height)
-                            2 -> InputStep("Peso (kg)", weight, Icons.Default.MonitorWeight)
-                            3 -> DropdownStep(
-                                "Nível de atividade",
-                                activity,
-                                listOf("Sedentário", "Moderado", "Ativo", "Muito Ativo")
+                            0 -> OutlinedTextField(
+                                value = age,
+                                onValueChange = { age = it },
+                                label = { Text("Idade") },
+                                keyboardOptions = KeyboardOptions(
+                                    keyboardType = KeyboardType.Number,
+                                    imeAction    = ImeAction.Next
+                                ),
+                                keyboardActions = KeyboardActions(
+                                    onNext = { focusManager.moveFocus(FocusDirection.Down) }
+                                ),
+                                modifier = Modifier.fillMaxWidth()
                             )
-                            4 -> DropdownStep(
-                                "Objetivo",
-                                goal,
-                                listOf("Perder Peso", "Manter Peso", "Ganhar Massa")
+                            1 -> OutlinedTextField(
+                                value = height,
+                                onValueChange = { height = it },
+                                label = { Text("Altura (cm)") },
+                                keyboardOptions = KeyboardOptions(
+                                    keyboardType = KeyboardType.Number,
+                                    imeAction    = ImeAction.Next
+                                ),
+                                keyboardActions = KeyboardActions(
+                                    onNext = { focusManager.moveFocus(FocusDirection.Down) }
+                                ),
+                                modifier = Modifier.fillMaxWidth()
                             )
-                            5 -> {
-                                Column(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                            2 -> OutlinedTextField(
+                                value = weight,
+                                onValueChange = { weight = it },
+                                label = { Text("Peso (kg)") },
+                                keyboardOptions = KeyboardOptions(
+                                    keyboardType = KeyboardType.Number,
+                                    imeAction    = ImeAction.Next
+                                ),
+                                keyboardActions = KeyboardActions(
+                                    onNext = { focusManager.moveFocus(FocusDirection.Down) }
+                                ),
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            3 -> {
+                                Text(
+                                    text  = "Nível de atividade",
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Spacer(Modifier.height(Dimens.spacingSm))
+
+                                var expandedAct by rememberSaveable { mutableStateOf(false) }
+                                ExposedDropdownMenuBox(
+                                    expanded         = expandedAct,
+                                    onExpandedChange = { expandedAct = !expandedAct }
                                 ) {
-                                    Text(
-                                        text = "Dias de treino por semana",
-                                        style = MaterialTheme.typography.titleMedium
-                                    )
-
-                                    var expanded by remember { mutableStateOf(false) }
-
-                                    OutlinedButton(
-                                        onClick = { expanded = true },
+                                    TextField(
+                                        value         = activity,
+                                        onValueChange = {},
+                                        readOnly      = true,
+                                        label         = { Text("Selecione") },
+                                        trailingIcon  = {
+                                            ExposedDropdownMenuDefaults.TrailingIcon(expandedAct)
+                                        },
                                         modifier = Modifier
                                             .fillMaxWidth()
-                                            .height(56.dp),
-                                        shape = RoundedCornerShape(10.dp)
+                                            .menuAnchor()
+                                    )
+                                    ExposedDropdownMenu(
+                                        expanded         = expandedAct,
+                                        onDismissRequest = { expandedAct = false }
                                     ) {
-                                        Text(
-                                            text = "${trainingDays.value} dias",
-                                            style = MaterialTheme.typography.bodyLarge.copy(
-                                                color = MaterialTheme.colorScheme.primary
-                                            )
-                                        )
+                                        listOf("Sedentário", "Moderado", "Ativo", "Muito Ativo")
+                                            .forEach { option ->
+                                                DropdownMenuItem(
+                                                    text    = { Text(option) },
+                                                    onClick = {
+                                                        activity   = option
+                                                        expandedAct = false
+                                                    }
+                                                )
+                                            }
                                     }
+                                }
+                            }
+                            4 -> {
+                                Text(
+                                    text  = "Objetivo",
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Spacer(Modifier.height(Dimens.spacingSm))
 
-                                    DropdownMenu(
-                                        expanded = expanded,
-                                        onDismissRequest = { expanded = false },
-                                        modifier = Modifier.fillMaxWidth()
+                                var expandedGoal by rememberSaveable { mutableStateOf(false) }
+                                ExposedDropdownMenuBox(
+                                    expanded         = expandedGoal,
+                                    onExpandedChange = { expandedGoal = !expandedGoal }
+                                ) {
+                                    TextField(
+                                        value         = goal,
+                                        onValueChange = {},
+                                        readOnly      = true,
+                                        label         = { Text("Selecione") },
+                                        trailingIcon  = {
+                                            ExposedDropdownMenuDefaults.TrailingIcon(expandedGoal)
+                                        },
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .menuAnchor()
+                                    )
+                                    ExposedDropdownMenu(
+                                        expanded         = expandedGoal,
+                                        onDismissRequest = { expandedGoal = false }
                                     ) {
-                                        (2..6).forEach { day ->
+                                        listOf("Perder Peso", "Manter Peso", "Ganhar Massa")
+                                            .forEach { option ->
+                                                DropdownMenuItem(
+                                                    text    = { Text(option) },
+                                                    onClick = {
+                                                        goal        = option
+                                                        expandedGoal = false
+                                                    }
+                                                )
+                                            }
+                                    }
+                                }
+                            }
+                            5 -> {
+                                Text(
+                                    text  = "Dias de treino por semana",
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Spacer(Modifier.height(Dimens.spacingSm))
+
+                                var expandedDays by rememberSaveable { mutableStateOf(false) }
+                                ExposedDropdownMenuBox(
+                                    expanded         = expandedDays,
+                                    onExpandedChange = { expandedDays = !expandedDays }
+                                ) {
+                                    TextField(
+                                        value         = "$daysCount dias",
+                                        onValueChange = {},
+                                        readOnly      = true,
+                                        label         = { Text("Selecione") },
+                                        trailingIcon  = {
+                                            ExposedDropdownMenuDefaults.TrailingIcon(expandedDays)
+                                        },
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .menuAnchor()
+                                    )
+                                    ExposedDropdownMenu(
+                                        expanded         = expandedDays,
+                                        onDismissRequest = { expandedDays = false }
+                                    ) {
+                                        (2..6).forEach { d ->
                                             DropdownMenuItem(
-                                                text = { Text("$day dias") },
+                                                text    = { Text("$d dias") },
                                                 onClick = {
-                                                    trainingDays.value = day
-                                                    expanded = false
+                                                    daysCount    = d
+                                                    expandedDays = false
                                                 }
                                             )
                                         }
@@ -141,81 +254,49 @@ fun OnBoardingScreen(
                         }
                     }
 
-                    Spacer(Modifier.height(24.dp))
+                    Spacer(Modifier.height(Dimens.spacingLg))
 
                     Button(
                         onClick = {
-                            if (step < LAST_STEP) step++ else {
+                            if (step < LAST_STEP) {
+                                step++
+                                keyboardCtrl?.hide()
+                            } else {
                                 scope.launch {
-                                    prefs.saveTrainingDays(trainingDays.value)
+                                    prefs.saveUserData(
+                                        name     = userName,
+                                        age      = age.toIntOrNull() ?: 0,
+                                        goal     = goal,
+                                        height   = height.toIntOrNull() ?: 0,
+                                        weight   = weight.toIntOrNull() ?: 0,
+                                        activity = activity
+                                    )
+                                    prefs.saveTrainingDays(daysCount)
                                     prefs.setOnboardingCompleted()
                                 }
                                 navController.navigate("training") {
-                                    popUpTo("onboarding_main/$userName") { inclusive = true }
-                                    launchSingleTop = true
+                                    popUpTo("onboarding_name") { inclusive = true }
                                 }
                             }
                         },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(56.dp),
-                        shape = RoundedCornerShape(10.dp)
+                        enabled = when (step) {
+                            0 -> age.isNotBlank()
+                            1 -> height.isNotBlank()
+                            2 -> weight.isNotBlank()
+                            3 -> activity.isNotBlank()
+                            4 -> goal.isNotBlank()
+                            5 -> true
+                            else -> false
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape    = MaterialTheme.shapes.small
                     ) {
-                        Text(if (step < LAST_STEP) "Seguinte" else "Começar")
+                        Text(
+                            text  = if (step < LAST_STEP) "Seguinte" else "Começar",
+                            style = MaterialTheme.typography.labelSmall
+                        )
                     }
                 }
-            }
-        }
-    }
-}
-
-@Composable
-fun InputStep(
-    label: String,
-    value: MutableState<String>,
-    icon: ImageVector
-) {
-    OutlinedTextField(
-        value = value.value,
-        onValueChange = { value.value = it },
-        label = { Text(label) },
-        leadingIcon = { Icon(icon, contentDescription = null) },
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
-        singleLine = true
-    )
-}
-
-@Composable
-fun DropdownStep(
-    label: String,
-    selected: MutableState<String>,
-    options: List<String>
-) {
-    var expanded by remember { mutableStateOf(false) }
-
-    Column {
-        Text(label, fontWeight = FontWeight.SemiBold)
-        Spacer(Modifier.height(4.dp))
-        OutlinedButton(
-            onClick = { expanded = true },
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(selected.value.ifEmpty { "Escolher..." })
-        }
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            options.forEach { item ->
-                DropdownMenuItem(
-                    text = { Text(item) },
-                    onClick = {
-                        selected.value = item
-                        expanded = false
-                    }
-                )
             }
         }
     }

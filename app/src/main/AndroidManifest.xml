@@ -6,15 +6,26 @@
     <application
         android:allowBackup="true"
         android:label="NutriMove"
-        android:theme="@style/Theme.NutriMove">
+        android:theme="@style/Theme.NutriMove"
+        android:icon="@mipmap/logo"
+        android:roundIcon="@mipmap/logo">
+
+        <!-- 1) SplashActivity is now the launcher -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NutriMove.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- 2) MainActivity no longer has MAIN/LAUNCHER -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NutriMove" />
+
+    </application>
 </manifest>

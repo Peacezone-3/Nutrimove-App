@@ -1,147 +1,156 @@
+// app/src/main/java/com/nutrimove/ui/screens/profile/PersonalDataScreen.kt
 package com.nutrimove.ui.screens.profile
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.nutrimove.data.UserPreferences
 import com.nutrimove.data.UserKeys
+import com.nutrimove.data.UserPreferences
+import com.nutrimove.ui.theme.Dimens
 import kotlinx.coroutines.launch
+import androidx.compose.ui.Alignment
+
 
 @Composable
-fun ProfilePersonalScreen(navController: NavController) {
+fun PersonalDataScreen(navController: NavController) {
     val context = LocalContext.current
-    val prefs = remember { UserPreferences(context) }
-    val userData by prefs.userFlow.collectAsState(initial = emptyMap())
-    val coroutineScope = rememberCoroutineScope()
+    val prefs   = remember { UserPreferences(context) }
+    val userMap by prefs.userFlow.collectAsState(initial = emptyMap())
+    val scope   = rememberCoroutineScope()
 
-    var name by remember { mutableStateOf("") }
-    var age by remember { mutableStateOf("") }
-    var weight by remember { mutableStateOf("") }
-    var height by remember { mutableStateOf("") }
-    var goal by remember { mutableStateOf("") }
-    var activity by remember { mutableStateOf("") }
-
-    // Atualiza os campos sempre que os dados do usuário mudam
-    LaunchedEffect(userData) {
-        name = (userData[UserKeys.NAME] as? String).orEmpty()
-        age = (userData[UserKeys.AGE] as? Int)?.toString().orEmpty()
-        weight = (userData[UserKeys.WEIGHT] as? Int)?.toString().orEmpty()
-        height = (userData[UserKeys.HEIGHT] as? Int)?.toString().orEmpty()
-        goal = (userData[UserKeys.GOAL] as? String).orEmpty()
-        activity = (userData[UserKeys.ACTIVITY] as? String).orEmpty()
-    }
-
-    val goalOptions = listOf("Perder Peso", "Manter Peso", "Ganhar Massa")
-    val activityOptions = listOf("Sedentário", "Moderado", "Ativo", "Muito Ativo")
+    var name      by remember { mutableStateOf((userMap[UserKeys.NAME]     as? String).orEmpty()) }
+    var ageStr    by remember { mutableStateOf((userMap[UserKeys.AGE]      as? Int)?.toString().orEmpty()) }
+    var heightStr by remember { mutableStateOf((userMap[UserKeys.HEIGHT]  as? Int)?.toString().orEmpty()) }
+    var weightStr by remember { mutableStateOf((userMap[UserKeys.WEIGHT]  as? Int)?.toString().orEmpty()) }
+    var activity  by remember { mutableStateOf((userMap[UserKeys.ACTIVITY] as? String).orEmpty()) }
+    var goal      by remember { mutableStateOf((userMap[UserKeys.GOAL]     as? String).orEmpty()) }
 
     Column(
-        modifier = Modifier
+        modifier           = Modifier
             .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.Start
+            .padding(Dimens.spacingMd),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Dados Pessoais", style = MaterialTheme.typography.headlineSmall)
-        Spacer(modifier = Modifier.height(16.dp))
-
-        OutlinedTextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text("Nome") },
-            modifier = Modifier.fillMaxWidth()
+        Text(
+            text  = "Dados pessoais",
+            style = MaterialTheme.typography.displayLarge
         )
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(Dimens.spacingMd))
 
+        // Nome
         OutlinedTextField(
-            value = age,
-            onValueChange = { age = it },
-            label = { Text("Idade") },
-            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-            modifier = Modifier.fillMaxWidth()
+            value        = name,
+            onValueChange= { name = it },
+            label        = { Text("Nome") },
+            singleLine   = true,
+            modifier     = Modifier.fillMaxWidth(),
+            shape        = MaterialTheme.shapes.small
         )
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(Dimens.spacingSm))
 
+        // Idade
         OutlinedTextField(
-            value = height,
-            onValueChange = { height = it },
-            label = { Text("Altura (cm)") },
-            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-            modifier = Modifier.fillMaxWidth()
+            value        = ageStr,
+            onValueChange= { ageStr = it },
+            label        = { Text("Idade") },
+            singleLine   = true,
+            modifier     = Modifier.fillMaxWidth(),
+            shape        = MaterialTheme.shapes.small
         )
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(Dimens.spacingSm))
 
+        // Altura
         OutlinedTextField(
-            value = weight,
-            onValueChange = { weight = it },
-            label = { Text("Peso (kg)") },
-            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-            modifier = Modifier.fillMaxWidth()
+            value        = heightStr,
+            onValueChange= { heightStr = it },
+            label        = { Text("Altura (cm)") },
+            singleLine   = true,
+            modifier     = Modifier.fillMaxWidth(),
+            shape        = MaterialTheme.shapes.small
         )
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(Dimens.spacingSm))
 
-        DropdownField("Objetivo", goal, goalOptions) { goal = it }
-        Spacer(modifier = Modifier.height(12.dp))
+        // Peso
+        OutlinedTextField(
+            value        = weightStr,
+            onValueChange= { weightStr = it },
+            label        = { Text("Peso (kg)") },
+            singleLine   = true,
+            modifier     = Modifier.fillMaxWidth(),
+            shape        = MaterialTheme.shapes.small
+        )
+        Spacer(modifier = Modifier.height(Dimens.spacingSm))
 
-        DropdownField("Nível de atividade", activity, activityOptions) { activity = it }
-        Spacer(modifier = Modifier.height(24.dp))
+        // Nível de atividade
+        DropdownMenuField(
+            label    = "Nível de atividade",
+            options  = listOf("Sedentário","Moderado","Ativo","Muito Ativo"),
+            selected = activity
+        ) {
+            activity = it
+        }
+        Spacer(modifier = Modifier.height(Dimens.spacingSm))
+
+        // Objetivo
+        DropdownMenuField(
+            label    = "Objetivo",
+            options  = listOf("Perder Peso","Manter Peso","Ganhar Massa"),
+            selected = goal
+        ) {
+            goal = it
+        }
+        Spacer(modifier = Modifier.height(Dimens.spacingLg))
 
         Button(
             onClick = {
-                coroutineScope.launch {
+                scope.launch {
                     prefs.saveUserData(
-                        name = name,
-                        age = age.toIntOrNull() ?: 0,
-                        goal = goal,
-                        height = height.toIntOrNull() ?: 0,
-                        weight = weight.toIntOrNull() ?: 0,
+                        name     = name,
+                        age      = ageStr.toIntOrNull() ?: 0,
+                        goal     = goal,
+                        height   = heightStr.toIntOrNull() ?: 0,
+                        weight   = weightStr.toIntOrNull() ?: 0,
                         activity = activity
                     )
-                    navController.popBackStack()
                 }
+                navController.popBackStack()
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            shape    = MaterialTheme.shapes.medium
         ) {
-            Text("Guardar")
+            Text("Salvar alterações", style = MaterialTheme.typography.labelSmall)
         }
     }
 }
 
+// Helper defined below or in the same file
 @Composable
-fun DropdownField(
+private fun DropdownMenuField(
     label: String,
-    selectedValue: String,
     options: List<String>,
-    onSelected: (String) -> Unit
+    selected: String,
+    onSelect: (String) -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
-
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(text = label, style = MaterialTheme.typography.labelLarge)
-        Spacer(modifier = Modifier.height(4.dp))
+        Text(label, style = MaterialTheme.typography.bodyMedium)
+        Spacer(modifier = Modifier.height(Dimens.spacingXs))
         OutlinedButton(
             onClick = { expanded = true },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            shape    = MaterialTheme.shapes.small
         ) {
-            Text(text = selectedValue.ifBlank { "Selecionar" })
+            Text(selected.ifEmpty { "Escolher…" }, style = MaterialTheme.typography.bodyMedium)
         }
-
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            options.forEach { option ->
+        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            options.forEach { opt ->
                 DropdownMenuItem(
-                    text = { Text(option) },
+                    text    = { Text(opt) },
                     onClick = {
-                        onSelected(option)
+                        onSelect(opt)
                         expanded = false
                     }
                 )
